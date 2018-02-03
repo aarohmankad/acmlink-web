@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UrlInputs from './UrlInputs';
 import './App.css';
 
 class App extends Component {
@@ -6,23 +7,27 @@ class App extends Component {
     super(props);
 
     this.state = {
-      shorturl: "",
-      longurl: "",
+      urlList: [{
+        shorturl: "",
+        longurl: "",
+      }]
     };
 
     this.submitURL = this.submitURL.bind(this);
   }
 
   submitURL() {
-    fetch('http://acmucrlink-api.herokuapp.com/', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
-    }).then(response => response.json())
-    .then(response => console.log('Success:', response))
-    .catch(error => console.error('Error:', error));
+    this.state.urlList.forEach(mapping => {
+      fetch('http://acmucrlink-api.herokuapp.com/', {
+        method: 'POST',
+        body: JSON.stringify(mapping),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      }).then(response => response.json())
+      .then(response => console.log('Success:', response))
+      .catch(error => console.error('Error:', error));
+    });
   }
 
   render() {
@@ -34,40 +39,46 @@ class App extends Component {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-6">
-            <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text">acmucr.link/</span>
-              </div>
+        {
+          this.state.urlList.map((mapping, index) => (
+            <UrlInputs
+              shorturl={mapping.shorturl}
+              longurl={mapping.longurl}
+              shorturlChange={event => {
+                event.persist();
+                
+                this.setState(state => {
+                  state.urlList[index].shorturl = event.target.value;
+                  return state;
+                });
+              }}
+              longurlChange={event => {
+                event.persist();
 
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Short URL"
-                value={this.state.shorturl}
-                onChange={(event) => this.setState({
-                  ...this.state,
-                  shorturl: event.target.value,
-                })}/>
-            </div>
-          </div>
-          <div className="col-6">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Long URL"
-              value={this.state.longurl}
-              onChange={(event) => this.setState({
-                ...this.state,
-                longurl: event.target.value,
-              })}/>
-          </div>
-        </div>
+                this.setState(state => {
+                  state.urlList[index].longurl = event.target.value;
+                  return state;
+                })
+              }}
+              />
+          ))
+        }
 
         <div className="row justify-content-center">
           <button
-            className="btn btn-primary"
+            className="btn btn-secondary"
+            onClick={() => this.setState(state => {
+              state.urlList.push({
+                shorturl: "",
+                longurl: "",
+              });
+              return state;
+            })}>
+            Add Link
+          </button>
+
+          <button
+            className="btn btn-success"
             onClick={this.submitURL}>
             Submit
           </button>
