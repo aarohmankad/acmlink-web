@@ -21,6 +21,15 @@
 .App-intro {
   font-size: large;
 }
+.down-arrow{
+  height : 100px;
+  width : 70px;
+}
+
+.down-arrow2{
+  height : 100px;
+  width : 70px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
