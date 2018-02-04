@@ -36,6 +36,7 @@ export default class Home extends Component {
         <div className="row">
           <div className="col">
             <h1 id="title"><img src={require("./acm_ucr_orange.png")} id="acm-logo" alt="acm@ucr logo"/>.link</h1>
+            <p id="info">Shorten your URL(s) today!</p>
           </div>
         </div>
 

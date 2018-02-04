@@ -25,3 +25,11 @@ body {
 #addButton, #submitButton {
 	margin: 1% 2%;
 }
+
+#info {
+	text-align: center;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 100%;
+	color: #ffff;
+	letter-spacing: 1px;
+}
