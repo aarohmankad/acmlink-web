@@ -30,11 +30,11 @@ export default class Redirector extends Component {
     } = this.state;
 
     if (loading) {
-      return <h1 class="msg">Looking for acm.link/{match.params.shorturl}</h1>
+      return <h1 class="msg">Looking for acmucr.link/{match.params.shorturl}</h1>
     } else if (error) {
-      return <h1 class="msg">Could not find acm.link/{match.params.shorturl}</h1>
+      return <h1 class="msg">Could not find acmucr.link/{match.params.shorturl}</h1>
     }
 
-    return <h1 class="msg">You are being redirected to acm.link/{match.params.shorturl}</h1>
+    return <h1 class="msg">You are being redirected to acmucr.link/{match.params.shorturl}</h1>
   }
 }
