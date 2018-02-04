@@ -1,0 +1,27 @@
+#title {
+	text-align: center;
+}
+
+h1 {
+	font-size: 510%;
+	margin-top: 10%;
+	margin-bottom: 2%;
+	color: #ffff;
+	font-family: 'PT Sans', sans-serif;
+}
+
+body {
+	background: linear-gradient(to bottom right, #00c6ff, #0066e5);
+	height: 100vh;
+	background-attachment: fixed;
+}
+
+#acm-logo {
+	width: 30%;
+	margin-right: 1%;
+	margin-bottom: 0%;
+}
+
+#addButton, #submitButton {
+	margin: 1% 2%;
+}

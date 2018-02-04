@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 import Home from './Home';
 import Redirector from './Redirector';
-import './App.css';
 
 const App = () => (
   <Router>

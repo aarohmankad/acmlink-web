@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UrlInputs from './UrlInputs';
+import './Home.css';
 
 export default class Home extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ export default class Home extends Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>acmucr.<i>link</i></h1>
+            <h1 id="title"><img src={require("./acm_ucr_orange.png")} id="acm-logo" alt="acm@ucr logo"/>.link</h1>
           </div>
         </div>
 
@@ -65,6 +66,7 @@ export default class Home extends Component {
 
         <div className="row justify-content-center">
           <button
+            id="addButton" 
             className="btn btn-secondary"
             onClick={() => this.setState(state => {
               state.urlList.push({
@@ -77,7 +79,8 @@ export default class Home extends Component {
           </button>
 
           <button
-            className="btn btn-success"
+            id="submitButton" 
+            className="btn btn-outline-light"
             onClick={this.submitURL}>
             Submit
           </button>

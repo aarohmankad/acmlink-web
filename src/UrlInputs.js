@@ -8,8 +8,8 @@ const UrlInputs = props => (
         <div className="input-group-prepend">
           <span className="input-group-text">acmucr.link/</span>
         </div>
-
         <input
+          id="shortUrl"
           type="text"
           className="form-control"
           placeholder="Shortened URL"
