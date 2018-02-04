@@ -1,4 +1,5 @@
 import React from 'react';
+import './UrlInputs.css';
 
 const UrlInputs = props => (
   <div className="row">
@@ -11,7 +12,7 @@ const UrlInputs = props => (
         <input
           type="text"
           className="form-control"
-          placeholder="Short URL"
+          placeholder="Shortened URL"
           value={props.shorturl}
           onChange={props.shorturlChange}/>
       </div>
