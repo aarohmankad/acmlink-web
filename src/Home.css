@@ -26,6 +26,14 @@ body {
 	margin: 1% 2%;
 }
 
+#addButton {
+	float: right;
+}
+
+#submitButton {
+	float: left;
+}
+
 #info {
 	text-align: center;
 	font-family: 'PT Sans', sans-serif;
