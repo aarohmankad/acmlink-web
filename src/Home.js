@@ -18,6 +18,10 @@ export default class Home extends Component {
 
   submitURL() {
     this.state.urlList.forEach(mapping => {
+      if (mapping.shorturl === "" || mapping.longurl === "") {
+        return;
+      }
+
       fetch('http://acmucrlink-api.herokuapp.com/', {
         method: 'POST',
         body: JSON.stringify(mapping),
